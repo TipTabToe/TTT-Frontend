@@ -3,8 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMenuScript : MonoBehaviour {
+    
+    SignUpPopUp popupWindow;
+    GameObject gameController;
+    
+    void Start () {
+        gameController = GameObject.Find("GameController");
+        popupWindow = gameController.GetComponent<SignUpPopUp> ();
+    }
+    
     public void Play() {
-        SceneLoader.Load(SceneLoader.Scene.PlayMenu);
+        // if logged in
+        // SceneLoader.Load(SceneLoader.Scene.PlayMenu);
+        // else
+        popupWindow.Open();
     }
 
     public void Options() {

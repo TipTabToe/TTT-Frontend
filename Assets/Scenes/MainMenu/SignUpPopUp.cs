@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine.UI;
 using UnityEditor;
 using UnityEngine;
@@ -8,8 +9,8 @@ using UnityEngine.Networking;
 
 public class SignUpPopUp : MonoBehaviour {
     public GameObject ui;
-    public InputField username;
-    public InputField password;
+    public TMP_InputField usernameField;
+    public TMP_InputField passwordField;
 
     // Start is called before the first frame update
     void Start() {
@@ -33,7 +34,7 @@ public class SignUpPopUp : MonoBehaviour {
             Time.timeScale = 1f;
         }
         
-        Request("localhost:8080/api/users/login/register", username.text, password.text);
+        Request("localhost:8080/api/users/login/register", usernameField.text, passwordField.text);
     }
     
     public void LogIn() {
@@ -42,7 +43,7 @@ public class SignUpPopUp : MonoBehaviour {
             Time.timeScale = 1f;
         }
         
-        Request("localhost:8080/api/users/login/login", username.text, password.text);
+        Request("localhost:8080/api/users/login/login", usernameField.text, passwordField.text);
         SceneLoader.Load(SceneLoader.Scene.PlayMenu);
     }
 

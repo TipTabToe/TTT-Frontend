@@ -2514,8 +2514,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 143097784}
-  username: {fileID: 0}
-  password: {fileID: 0}
+  usernameField: {fileID: 0}
+  passwordField: {fileID: 0}
 --- !u!4 &1613498020
 Transform:
   m_ObjectHideFlags: 0
@@ -3167,8 +3167,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0

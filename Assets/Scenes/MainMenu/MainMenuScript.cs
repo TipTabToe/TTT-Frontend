@@ -6,6 +6,7 @@ public class MainMenuScript : MonoBehaviour {
     
     SignUpPopUp popupWindow;
     GameObject gameController;
+    private bool loggedIn = false;
     
     void Start () {
         gameController = GameObject.Find("GameController");
@@ -13,10 +14,12 @@ public class MainMenuScript : MonoBehaviour {
     }
     
     public void Play() {
-        // if logged in
-        // SceneLoader.Load(SceneLoader.Scene.PlayMenu);
-        // else
-        popupWindow.Open();
+        if (loggedIn) {
+            SceneLoader.Load(SceneLoader.Scene.PlayMenu);
+        }
+        else {
+            popupWindow.Open();
+        }
     }
 
     public void Options() {

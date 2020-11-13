@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GameScript : MonoBehaviour {
     public TMP_Text questionText;
     private QuestionSet myObject;
+    private Question question;
     public TMP_Text btnText1;
     public TMP_Text btnText2;
     public TMP_Text btnText3;
@@ -63,7 +64,7 @@ public class GameScript : MonoBehaviour {
             Debug.Log(q.question);
         }
 
-        Question question = myObject.questions[1];
+        question = myObject.questions[1];
         questionText.text = question.question;
         btnText1.text = question.answers[0];
         btnText2.text = question.answers[1];
@@ -73,5 +74,25 @@ public class GameScript : MonoBehaviour {
 
     private void Clicked(int num) {
         Debug.Log(num);
+        if (question.answers[num].Equals(question.correctAnswer)) {
+
+            Debug.Log("JEE");
+            var colors = btn1.colors;
+            colors.selectedColor = Color.green;
+            btn1.colors = colors;
+            
+            /*
+            btn1.enabled = false;
+            btn2.enabled = false;
+            btn3.enabled = false;
+            btn4.enabled = false;
+            */
+            
+        }
+        else {
+            Debug.Log("VAR");
+        }
+        
+        
     }
 }

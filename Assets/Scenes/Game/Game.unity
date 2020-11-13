@@ -936,6 +936,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965c3fbba26f367469ad2ea9f6d318af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questionText: {fileID: 1016266901}
+  btnText1: {fileID: 467138323}
+  btnText2: {fileID: 20878445}
+  btnText3: {fileID: 1798018866}
+  btnText4: {fileID: 435726655}
+  btn1: {fileID: 1281572238}
+  btn2: {fileID: 276344570}
+  btn3: {fileID: 1694707295}
+  btn4: {fileID: 436686351}
 --- !u!4 &985669654
 Transform:
   m_ObjectHideFlags: 0
@@ -1243,7 +1252,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1281572239}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 985669652}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1281572239
 MonoBehaviour:
   m_ObjectHideFlags: 0

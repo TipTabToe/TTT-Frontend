@@ -34,7 +34,7 @@ public class SignUpPopUp : MonoBehaviour {
             Time.timeScale = 1f;
         }
         
-        Request("localhost:8080/api/users/login/register", usernameField.text, passwordField.text);
+        Request("localhost:8080/api/users/register", usernameField.text, passwordField.text);
     }
     
     public void LogIn() {
@@ -43,7 +43,7 @@ public class SignUpPopUp : MonoBehaviour {
             Time.timeScale = 1f;
         }
         
-        Request("localhost:8080/api/users/login/login", usernameField.text, passwordField.text);
+        //Request("localhost:8080/api/users/login", usernameField.text, passwordField.text);
         SceneLoader.Load(SceneLoader.Scene.PlayMenu);
     }
 

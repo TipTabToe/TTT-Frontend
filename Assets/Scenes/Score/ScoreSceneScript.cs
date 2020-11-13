@@ -8,12 +8,18 @@ public class ScoreSceneScript : MonoBehaviour {
     public TMP_Text heading;
     public TMP_Text points;
     public TMP_Text opponentPoints;
+    public int playerScore;
+    public int opponentScore;
     
-    // Start is called before the first frame update
     void Start() {
-    }
-
-    // Update is called once per frame
-    void Update() {
+        if (playerScore > opponentScore) {
+            heading.SetText("You won!");
+        }
+        else {
+            heading.SetText("You lost!");
+        }
+        
+        points.SetText(playerScore.ToString() + " points");
+        opponentPoints.SetText(opponentScore.ToString() + " points");
     }
 }

@@ -23,10 +23,10 @@ public class GameScript : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions", ResponseCallback));
-        btn1.onClick.AddListener(delegate { Clicked(0); });
-        btn2.onClick.AddListener(delegate { Clicked(1); });
-        btn3.onClick.AddListener(delegate { Clicked(2); });
-        btn4.onClick.AddListener(delegate { Clicked(3); });
+        btn1.onClick.AddListener(delegate { Clicked(0, btn1); });
+        btn2.onClick.AddListener(delegate { Clicked(1, btn2); });
+        btn3.onClick.AddListener(delegate { Clicked(2, btn3); });
+        btn4.onClick.AddListener(delegate { Clicked(3, btn4); });
     }
 
     // Update is called once per frame
@@ -72,22 +72,13 @@ public class GameScript : MonoBehaviour {
         btnText4.text = question.answers[3];
     }
 
-    private void Clicked(int num) {
+    private void Clicked(int num, Button b) {
         Debug.Log(num);
         if (question.answers[num].Equals(question.correctAnswer)) {
-
             Debug.Log("JEE");
-            var colors = btn1.colors;
+            var colors = b.colors;
             colors.selectedColor = Color.green;
-            btn1.colors = colors;
-            
-            /*
-            btn1.enabled = false;
-            btn2.enabled = false;
-            btn3.enabled = false;
-            btn4.enabled = false;
-            */
-            
+            b.colors = colors;
         }
         else {
             Debug.Log("VAR");

@@ -22,4 +22,8 @@ public class ScoreSceneScript : MonoBehaviour {
         points.SetText(playerScore.ToString() + " points");
         opponentPoints.SetText(opponentScore.ToString() + " points");
     }
+
+    public void ContinueClicked() {
+        SceneLoader.Load(SceneLoader.Scene.PlayMenu);
+    }
 }

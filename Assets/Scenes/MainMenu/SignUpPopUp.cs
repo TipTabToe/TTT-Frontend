@@ -60,6 +60,7 @@ public class SignUpPopUp : MonoBehaviour {
         }
         catch (Exception e) { Debug.Log("ERROR : " + e.Message); }
     }
+    
     private IEnumerator onResponse(UnityWebRequest req) {
         yield return req.SendWebRequest();
         if (req.isError)
@@ -67,7 +68,9 @@ public class SignUpPopUp : MonoBehaviour {
         else
             Debug.Log("Success "+req.downloadHandler.text );
         byte[] results = req.downloadHandler.data;
+        Debug.Log(results.ToString());
         Debug.Log("Second Success");
         // Some code after success
     }
+    
 }

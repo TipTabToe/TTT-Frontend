@@ -17,7 +17,8 @@ public class PlayMenuScript : MonoBehaviour
     }
     
     public void CreateGame() {
-        SceneLoader.Load(SceneLoader.Scene.Lobby);
+        //SceneLoader.Load(SceneLoader.Scene.Lobby);
+        SceneLoader.Load(SceneLoader.Scene.Game);
     }
     
     public void Back() {

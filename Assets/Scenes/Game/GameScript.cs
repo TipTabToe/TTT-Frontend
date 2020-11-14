@@ -20,6 +20,8 @@ public class GameScript : MonoBehaviour {
     public Button btn3;
     public Button btn4;
     public Button continueButton;
+    public Button scoreButton;
+    private int cycle = 0;
     
     // Start is called before the first frame update
     void Start() {
@@ -29,7 +31,9 @@ public class GameScript : MonoBehaviour {
         btn3.onClick.AddListener(delegate { Clicked(2, btn3); });
         btn4.onClick.AddListener(delegate { Clicked(3, btn4); });
         continueButton.gameObject.SetActive(false);
+        scoreButton.gameObject.SetActive(false);
         continueButton.onClick.AddListener(delegate { NextQuestion(); });
+        scoreButton.onClick.AddListener(delegate { SeeScore(); });
     }
 
     // Update is called once per frame
@@ -107,7 +111,15 @@ public class GameScript : MonoBehaviour {
         
         setButtonsInteractable(false);
 
-        continueButton.gameObject.SetActive(true);
+        cycle++;
+
+        if (cycle < 5) {
+            continueButton.gameObject.SetActive(true);
+        }
+        else {
+            scoreButton.gameObject.SetActive(true);
+        }
+        
     }
 
     private void NextQuestion() {
@@ -139,5 +151,9 @@ public class GameScript : MonoBehaviour {
         btn3.colors = colors;
         btn4.colors = colors;
     }
-    
+
+    private void SeeScore() {
+        // SceneLoader.Load(SceneLoader.Scene.Score);
+        SceneLoader.Load(SceneLoader.Scene.MainMenu);
+    }
 }

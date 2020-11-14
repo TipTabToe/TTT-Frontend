@@ -18,8 +18,7 @@ public class GameScript : MonoBehaviour {
     public Button btn2;
     public Button btn3;
     public Button btn4;
-
-
+    
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions", ResponseCallback));
@@ -78,12 +77,42 @@ public class GameScript : MonoBehaviour {
             Debug.Log("JEE");
             var colors = b.colors;
             colors.selectedColor = Color.green;
+            colors.disabledColor = Color.green;
             b.colors = colors;
         }
         else {
             Debug.Log("VAR");
+            var colors = b.colors;
+            colors.selectedColor = Color.red;
+            colors.disabledColor = Color.red;
+            b.colors = colors;
+
+            if (btnText1.text.Equals(question.correctAnswer)) {
+                var colorsA = btn1.colors;
+                colorsA.normalColor = Color.green;
+                colorsA.disabledColor = Color.green;
+                btn1.colors = colorsA;
+            } else if (btnText2.text.Equals(question.correctAnswer)) {
+                var colorsA = btn2.colors;
+                colorsA.normalColor = Color.green;
+                colorsA.disabledColor = Color.green;
+                btn2.colors = colorsA;
+            } else if (btnText3.text.Equals(question.correctAnswer)) {
+                var colorsA = btn3.colors;
+                colorsA.normalColor = Color.green;
+                colorsA.disabledColor = Color.green;
+                btn3.colors = colorsA;
+            } else if (btnText4.text.Equals(question.correctAnswer)) {
+                var colorsA = btn4.colors;
+                colorsA.normalColor = Color.green;
+                colorsA.disabledColor = Color.green;
+                btn4.colors = colorsA;
+            }
         }
-        
-        
+
+        btn1.interactable = false;
+        btn2.interactable = false;
+        btn3.interactable = false;
+        btn4.interactable = false;
     }
 }

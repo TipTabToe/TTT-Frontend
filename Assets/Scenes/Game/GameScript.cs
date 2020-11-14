@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameScript : MonoBehaviour {
     public TMP_Text questionText;
@@ -18,6 +19,7 @@ public class GameScript : MonoBehaviour {
     public Button btn2;
     public Button btn3;
     public Button btn4;
+    public Button continueButton;
     
     // Start is called before the first frame update
     void Start() {
@@ -26,14 +28,13 @@ public class GameScript : MonoBehaviour {
         btn2.onClick.AddListener(delegate { Clicked(1, btn2); });
         btn3.onClick.AddListener(delegate { Clicked(2, btn3); });
         btn4.onClick.AddListener(delegate { Clicked(3, btn4); });
+        continueButton.gameObject.SetActive(false);
+        continueButton.onClick.AddListener(delegate { NextQuestion(); });
     }
 
     // Update is called once per frame
     void Update() {
     }
-
-    // Keep track of what we got back
-    string recentData = "";
 
     // Web requests are typially done asynchronously, so Unity's web request system
     // returns a yield instruction while it waits for the response.
@@ -55,7 +56,6 @@ public class GameScript : MonoBehaviour {
     // Callback to act on our response data
     private void ResponseCallback(string data) {
         Debug.Log(data);
-        recentData = data;
 
         myObject = JsonUtility.FromJson<QuestionSet>("{\"questions\":" + data + "}");
         Debug.Log(myObject.questions);
@@ -63,12 +63,7 @@ public class GameScript : MonoBehaviour {
             Debug.Log(q.question);
         }
 
-        question = myObject.questions[1];
-        questionText.text = question.question;
-        btnText1.text = question.answers[0];
-        btnText2.text = question.answers[1];
-        btnText3.text = question.answers[2];
-        btnText4.text = question.answers[3];
+        NextQuestion();
     }
 
     private void Clicked(int num, Button b) {
@@ -109,10 +104,40 @@ public class GameScript : MonoBehaviour {
                 btn4.colors = colorsA;
             }
         }
+        
+        setButtonsInteractable(false);
 
-        btn1.interactable = false;
-        btn2.interactable = false;
-        btn3.interactable = false;
-        btn4.interactable = false;
+        continueButton.gameObject.SetActive(true);
     }
+
+    private void NextQuestion() {
+        continueButton.gameObject.SetActive(false);
+        setButtonsInteractable(true);
+        resetButtonColors();
+        question = myObject.questions[Random.Range(0, 10)];
+        questionText.text = question.question;
+        btnText1.text = question.answers[0];
+        btnText2.text = question.answers[1];
+        btnText3.text = question.answers[2];
+        btnText4.text = question.answers[3];
+    }
+
+    private void setButtonsInteractable(bool boolean) {
+        btn1.interactable = boolean;
+        btn2.interactable = boolean;
+        btn3.interactable = boolean;
+        btn4.interactable = boolean;
+    }
+
+    private void resetButtonColors() {
+        var colors = btn1.colors;
+        colors.normalColor = Color.white;
+        colors.selectedColor = Color.white;
+        colors.disabledColor = Color.white;
+        btn1.colors = colors;
+        btn2.colors = colors;
+        btn3.colors = colors;
+        btn4.colors = colors;
+    }
+    
 }

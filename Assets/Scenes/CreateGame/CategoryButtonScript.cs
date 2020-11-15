@@ -8,4 +8,8 @@ public class CategoryButtonScript : MonoBehaviour {
     public void onClick() {
         CategoryScript.ToggleCategory(cat);
     }
+
+    public void SelectCategory() {
+        SceneLoader.Load(SceneLoader.Scene.Game);
+    }
 }

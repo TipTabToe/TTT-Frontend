@@ -153,7 +153,7 @@ public class GameScript : MonoBehaviour {
     }
 
     private void SeeScore() {
-        // SceneLoader.Load(SceneLoader.Scene.Score);
-        SceneLoader.Load(SceneLoader.Scene.MainMenu);
+        SceneLoader.Load(SceneLoader.Scene.Score);
+        // SceneLoader.Load(SceneLoader.Scene.MainMenu);
     }
 }

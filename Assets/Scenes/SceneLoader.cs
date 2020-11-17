@@ -10,7 +10,8 @@ public static class SceneLoader {
         Options,
         PlayMenu,
         Startup,
-        CreateGame
+        CreateGame,
+        Score
     }
 
     private static Action onLoaderCallback;

@@ -6,7 +6,7 @@ public class MainMenuScript : MonoBehaviour {
     
     SignUpPopUp popupWindow;
     GameObject gameController;
-    private bool loggedIn = false;
+    private bool loggedIn = true;
     
     void Start () {
         gameController = GameObject.Find("GameController");

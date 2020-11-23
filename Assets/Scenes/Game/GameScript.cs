@@ -72,6 +72,7 @@ public class GameScript : MonoBehaviour {
     }
 
     private void Clicked(int num, Button b) {
+        TimerScript.answered = true;
         Debug.Log(num);
         if (question.answers[num].Equals(question.correctAnswer)) {
             Debug.Log("JEE");
@@ -135,6 +136,7 @@ public class GameScript : MonoBehaviour {
         btnText2.text = question.answers[1];
         btnText3.text = question.answers[2];
         btnText4.text = question.answers[3];
+        TimerScript.ResetTimer();
     }
 
     private void setButtonsInteractable(bool boolean) {

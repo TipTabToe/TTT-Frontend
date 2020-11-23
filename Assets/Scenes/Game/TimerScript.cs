@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class TimerScript : MonoBehaviour
 {
-    public float timeRemaining = 10;
-    public bool timerIsRunning = false;
+    public static float timeRemaining = 25;
+    public static bool timerIsRunning = false;
     public TMP_Text timer;
+    public static bool answered = false;
     
     void Start()
     {
@@ -17,7 +18,7 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timerIsRunning)
+        if (timerIsRunning && !answered)
         {
             if (timeRemaining > 0)
             {
@@ -29,7 +30,14 @@ public class TimerScript : MonoBehaviour
                 print("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
+                
             }
         }
+    }
+
+    public static void ResetTimer() {
+        timeRemaining = 25;
+        answered = false;
+        timerIsRunning = true;
     }
 }

@@ -14,11 +14,7 @@ public class LoaderCallback : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        /*
-        if (!firstFrame) return;
-        firstFrame = false;
-        SceneLoader.LoaderCallback();
-        */
+
         timer += Time.deltaTime;
         if (timer > 4) {
             timer -= 4;
@@ -28,7 +24,9 @@ public class LoaderCallback : MonoBehaviour {
             selector = (int) timer;
             loadingText.text = loading + dots[selector];
         }
-        
-        Debug.Log(timer);
+        // Debug.Log(timer);
+        if (!firstFrame) return;
+        firstFrame = false;
+        SceneLoader.LoaderCallback();
     }
 }

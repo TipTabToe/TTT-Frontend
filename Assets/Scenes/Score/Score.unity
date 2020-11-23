@@ -752,7 +752,7 @@ MonoBehaviour:
   points: {fileID: 1166730861}
   opponentPoints: {fileID: 680043807}
   playerScore: 20
-  opponentScore: 50
+  opponentScore: 1
 --- !u!4 &1267066793
 Transform:
   m_ObjectHideFlags: 0

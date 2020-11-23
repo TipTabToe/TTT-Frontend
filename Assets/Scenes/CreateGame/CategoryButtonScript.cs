@@ -10,6 +10,6 @@ public class CategoryButtonScript : MonoBehaviour {
     }
 
     public void SelectCategory() {
-        SceneLoader.Load(SceneLoader.Scene.Game);
+        SceneLoader.LoadWithLoader(SceneLoader.Scene.Game);
     }
 }

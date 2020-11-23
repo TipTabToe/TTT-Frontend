@@ -22,6 +22,7 @@ public class GameScript : MonoBehaviour {
     public Button continueButton;
     public Button scoreButton;
     private int cycle = 0;
+    private int points = 0;
     
     // Start is called before the first frame update
     void Start() {
@@ -78,6 +79,7 @@ public class GameScript : MonoBehaviour {
             colors.selectedColor = Color.green;
             colors.disabledColor = Color.green;
             b.colors = colors;
+            points++;
         }
         else {
             Debug.Log("VAR");
@@ -118,6 +120,7 @@ public class GameScript : MonoBehaviour {
         }
         else {
             scoreButton.gameObject.SetActive(true);
+            GlobalClass.player.points = points;
         }
         
     }

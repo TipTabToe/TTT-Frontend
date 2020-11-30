@@ -12,6 +12,7 @@ public class ScoreSceneScript : MonoBehaviour {
     public int opponentScore;
     
     void Start() {
+        computerPoints();
         if (playerScore > opponentScore) {
             heading.SetText("You won!");
         }
@@ -26,5 +27,14 @@ public class ScoreSceneScript : MonoBehaviour {
 
     public void ContinueClicked() {
         SceneLoader.Load(SceneLoader.Scene.PlayMenu);
+    }
+
+    public void computerPoints() {
+        for (int i = 0; i < 5; i++) {
+            float random = Random.value;
+            if (random < 0.5) {
+                opponentScore++;
+            }
+        }
     }
 }

@@ -27,6 +27,12 @@ public class LoaderCallback : MonoBehaviour {
         // Debug.Log(timer);
         if (!firstFrame) return;
         firstFrame = false;
+        
+        Invoke("callCallbackMethod", 2);
+        // SceneLoader.LoaderCallback();
+    }
+
+    private void callCallbackMethod() {
         SceneLoader.LoaderCallback();
     }
 }

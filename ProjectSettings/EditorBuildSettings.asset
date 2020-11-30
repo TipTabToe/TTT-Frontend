@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayMenu/PlayMenu.unity
     guid: be1924f872dffd441ad8441b5d4e5b7d
   - enabled: 1
-    path: Assets/Scenes/Options/Options.unity
+    path: Assets/Scenes/Friendlist/Friendlist.unity
     guid: 4e16be455009c38419028b7dd56a34e6
   - enabled: 1
     path: Assets/Scenes/Game/Game.unity

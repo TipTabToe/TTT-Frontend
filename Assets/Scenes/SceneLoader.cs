@@ -7,7 +7,7 @@ public static class SceneLoader {
         LoadGame,
         Lobby,
         MainMenu,
-        Options,
+        Friendlist,
         PlayMenu,
         Startup,
         CreateGame,

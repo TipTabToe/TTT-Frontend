@@ -12,7 +12,11 @@ public class User {
     public List<long> pendingFriends;
     public List<long> pendingRequests;
 
-    public override string ToString() {
-        return $"{nameof(id)}: {id}, {nameof(username)}: {username}, {nameof(password)}: {password}, {nameof(points)}: {points}, {nameof(statistics)}: {statistics}, {nameof(friends)}: {friends}, {nameof(pendingFriends)}: {pendingFriends}, {nameof(pendingRequests)}: {pendingRequests}";
+    public User() : this("username") { }
+    
+    public User(string name) {
+		username = name;
+		statistics = new List<Statistic>();
     }
+    
 }

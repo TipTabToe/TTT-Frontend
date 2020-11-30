@@ -122,16 +122,17 @@ public class GameScript : MonoBehaviour {
         cycle++;
 
         if (cycle < 5) {
-            continueButton.gameObject.SetActive(true);
+            // continueButton.gameObject.SetActive(true);
+            Invoke("NextQuestion", 4);
         }
         else {
-            scoreButton.gameObject.SetActive(true);
+            //scoreButton.gameObject.SetActive(true);
+            Invoke("SeeScore", 4);
             GlobalClass.player.points = points;
         }
-        
     }
 
-    private void NextQuestion() {
+    public void NextQuestion() {
         continueButton.gameObject.SetActive(false);
         setButtonsInteractable(true);
         resetButtonColors();

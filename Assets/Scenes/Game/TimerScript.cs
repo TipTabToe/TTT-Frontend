@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class TimerScript : MonoBehaviour
 {
-    public static float timeRemaining = 25;
+    public static float timeRemaining = 20;
     public static bool timerIsRunning = false;
     public TMP_Text timer;
     public static bool answered = false;
+    public GameScript gameScript;
     
     void Start()
     {
@@ -30,13 +31,14 @@ public class TimerScript : MonoBehaviour
                 print("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
-                
+                gameScript.NextQuestion();
+
             }
         }
     }
 
     public static void ResetTimer() {
-        timeRemaining = 25;
+        timeRemaining = 20;
         answered = false;
         timerIsRunning = true;
     }

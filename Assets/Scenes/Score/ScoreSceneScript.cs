@@ -21,8 +21,8 @@ public class ScoreSceneScript : MonoBehaviour {
             heading.SetText("You lost!");
         }
         
-        points.SetText(playerScore.ToString() + " points");
-        opponentPoints.SetText(opponentScore.ToString() + " points");
+        points.SetText(playerScore.ToString());
+        opponentPoints.SetText(opponentScore.ToString());
     }
 
     public void ContinueClicked() {

@@ -23,9 +23,9 @@ public class GameScript : MonoBehaviour {
     public Button scoreButton;
     private int cycle = 0;
     private int points = 0;
-    private int amountOfQuestions = 2;
+    private int amountOfQuestions = 6;
     private List <int> shuffledQuestions = new List<int>(4);
-    
+
     // Start is called before the first frame update
     void Start() {
         shuffleQuestions();

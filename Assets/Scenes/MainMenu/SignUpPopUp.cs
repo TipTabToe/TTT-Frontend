@@ -45,7 +45,8 @@ public class SignUpPopUp : MonoBehaviour {
         }
         
         StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/users/login", usernameField.text, passwordField.text, ResponseCallback));
-        SceneLoader.Load(SceneLoader.Scene.PlayMenu);
+        //SceneLoader.Load(SceneLoader.Scene.PlayMenu);
+        SceneLoader.LoadWithLoader(SceneLoader.Scene.Game);
     }
 
     private IEnumerator RequestRoutine(string url, string username, string password, Action<string> callback = null) {

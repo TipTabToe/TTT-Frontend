@@ -24,7 +24,7 @@ public class MainMenuScript : MonoBehaviour {
     }
 
     public void Options() {
-        SceneLoader.LoadWithLoader(SceneLoader.Scene.Options);
+        SceneLoader.LoadWithLoader(SceneLoader.Scene.Friendlist);
     }
     
     public void Quit() {

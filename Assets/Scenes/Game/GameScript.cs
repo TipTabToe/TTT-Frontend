@@ -23,14 +23,17 @@ public class GameScript : MonoBehaviour {
     public Button scoreButton;
     private int cycle = 0;
     private int points = 0;
+    private int amountOfQuestions = 2;
+    private List <int> shuffledQuestions = new List<int>(4);
     
     // Start is called before the first frame update
     void Start() {
+        shuffleQuestions();
         StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions", ResponseCallback));
-        btn1.onClick.AddListener(delegate { Clicked(0, btn1); });
-        btn2.onClick.AddListener(delegate { Clicked(1, btn2); });
-        btn3.onClick.AddListener(delegate { Clicked(2, btn3); });
-        btn4.onClick.AddListener(delegate { Clicked(3, btn4); });
+        btn1.onClick.AddListener(delegate { Clicked(shuffledQuestions[0], btn1); });
+        btn2.onClick.AddListener(delegate { Clicked(shuffledQuestions[1], btn2); });
+        btn3.onClick.AddListener(delegate { Clicked(shuffledQuestions[2], btn3); });
+        btn4.onClick.AddListener(delegate { Clicked(shuffledQuestions[3], btn4); });
         continueButton.gameObject.SetActive(false);
         scoreButton.gameObject.SetActive(false);
         continueButton.onClick.AddListener(delegate { NextQuestion(); });
@@ -73,7 +76,9 @@ public class GameScript : MonoBehaviour {
 
     private void Clicked(int num, Button b) {
         TimerScript.answered = true;
-        Debug.Log(num);
+        Debug.Log("Num" + num);
+        Debug.Log("Questions answers num" + question.answers[num]);
+        Debug.Log("Oikea vastaus" + question.correctAnswer);
         if (question.answers[num].Equals(question.correctAnswer)) {
             Debug.Log("JEE");
             var colors = b.colors;
@@ -130,12 +135,13 @@ public class GameScript : MonoBehaviour {
         continueButton.gameObject.SetActive(false);
         setButtonsInteractable(true);
         resetButtonColors();
-        question = myObject.questions[Random.Range(0, 10)];
+        question = myObject.questions[Random.Range(0, amountOfQuestions)];
         questionText.text = question.question;
-        btnText1.text = question.answers[0];
-        btnText2.text = question.answers[1];
-        btnText3.text = question.answers[2];
-        btnText4.text = question.answers[3];
+
+        btnText1.text = question.answers[shuffledQuestions[0]];
+        btnText2.text = question.answers[shuffledQuestions[1]];
+        btnText3.text = question.answers[shuffledQuestions[2]];
+        btnText4.text = question.answers[shuffledQuestions[3]];
         TimerScript.ResetTimer();
     }
 
@@ -160,5 +166,17 @@ public class GameScript : MonoBehaviour {
     private void SeeScore() {
         SceneLoader.Load(SceneLoader.Scene.Score);
         // SceneLoader.Load(SceneLoader.Scene.MainMenu);
+    }
+
+    private void shuffleQuestions() {
+        shuffledQuestions.Clear();
+        int i = 0;
+        while (i < 4) {
+            int random = Random.Range(0, 4);
+            if (!shuffledQuestions.Contains(random)) {
+                shuffledQuestions.Add(random);
+                i++;
+            }
+        }
     }
 }

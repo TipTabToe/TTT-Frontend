@@ -13,6 +13,7 @@ public class ScoreSceneScript : MonoBehaviour {
     
     void Start() {
         computerPoints();
+        playerScore = GlobalClass.player.points;
         if (playerScore > opponentScore) {
             heading.SetText("You won!");
         }
@@ -20,8 +21,7 @@ public class ScoreSceneScript : MonoBehaviour {
             heading.SetText("You lost!");
         }
         
-        // points.SetText(playerScore.ToString() + " points");
-        points.SetText(GlobalClass.player.points.ToString() + " points");
+        points.SetText(playerScore.ToString() + " points");
         opponentPoints.SetText(opponentScore.ToString() + " points");
     }
 

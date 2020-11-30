@@ -58,7 +58,7 @@ public class SignUpPopUp : MonoBehaviour {
         // Wait for the response and then get our data
         yield return request.SendWebRequest();
         
-        if (request.isError)
+        if (request.isNetworkError)
             Debug.Log("Network error has occured: " + request.GetResponseHeader(""));
         else
             Debug.Log("Success "+request.downloadHandler.text );

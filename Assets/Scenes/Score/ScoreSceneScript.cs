@@ -10,6 +10,8 @@ public class ScoreSceneScript : MonoBehaviour {
     public TMP_Text points;
     public TMP_Text opponentPoints;
     public Image icon;
+    public Sprite winnerIcon;
+    public Sprite loserIcon;
     public int playerScore;
     public int opponentScore;
     
@@ -18,10 +20,11 @@ public class ScoreSceneScript : MonoBehaviour {
         playerScore = GlobalClass.player.points;
         if (playerScore > opponentScore) {
             heading.SetText("You won!");
-            
+            icon.sprite = winnerIcon;
         }
         else {
             heading.SetText("You lost!");
+            icon.sprite = loserIcon;
         }
         
         points.SetText(playerScore.ToString());

@@ -19,8 +19,7 @@ public class GameScript : MonoBehaviour {
     public Button btn2;
     public Button btn3;
     public Button btn4;
-    public Button continueButton;
-    public Button scoreButton;
+    public Image categoryImage;
     private int cycle = 0;
     private int points = 0;
     private int amountOfQuestions = 6;
@@ -34,10 +33,10 @@ public class GameScript : MonoBehaviour {
         btn2.onClick.AddListener(delegate { Clicked(shuffledQuestions[1], btn2); });
         btn3.onClick.AddListener(delegate { Clicked(shuffledQuestions[2], btn3); });
         btn4.onClick.AddListener(delegate { Clicked(shuffledQuestions[3], btn4); });
-        continueButton.gameObject.SetActive(false);
+        /* continueButton.gameObject.SetActive(false);
         scoreButton.gameObject.SetActive(false);
         continueButton.onClick.AddListener(delegate { NextQuestion(); });
-        scoreButton.onClick.AddListener(delegate { SeeScore(); });
+        scoreButton.onClick.AddListener(delegate { SeeScore(); }); */
     }
 
     // Update is called once per frame
@@ -171,7 +170,7 @@ public class GameScript : MonoBehaviour {
     }
 
     public void NextQuestion() {
-        continueButton.gameObject.SetActive(false);
+        // continueButton.gameObject.SetActive(false);
         setButtonsInteractable(true);
         resetButtonColors();
         question = myObject.questions[Random.Range(0, amountOfQuestions)];

@@ -15,9 +15,11 @@ public class PlayerSettings : MonoBehaviour {
     
     public void Awake () {
         if (!PlayerPrefs.HasKey("player")) {
+            Debug.Log("Create player");
             GlobalClass.player = new User();
             savePlayer();
         } else {
+            Debug.Log("Loading player");
             GlobalClass.player = loadPlayer();
         }
     }

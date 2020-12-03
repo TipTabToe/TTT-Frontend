@@ -15,7 +15,7 @@ public class MainMenuScript : MonoBehaviour {
     }
     
     public void Play() {
-        SceneLoader.Load(SceneLoader.Scene.Game);
+        SceneLoader.Load(SceneLoader.Scene.CreateGame);
     }
 
     public void Options() {

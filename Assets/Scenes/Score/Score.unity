@@ -575,6 +575,9 @@ MonoBehaviour:
   heading: {fileID: 0}
   points: {fileID: 0}
   opponentPoints: {fileID: 0}
+  icon: {fileID: 0}
+  winnerIcon: {fileID: 0}
+  loserIcon: {fileID: 0}
   playerScore: 0
   opponentScore: 0
 --- !u!114 &529070023
@@ -2044,7 +2047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9529412, g: 0.9254902, b: 0.8509804, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

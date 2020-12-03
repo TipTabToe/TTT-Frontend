@@ -29,10 +29,6 @@ public class GameScript : MonoBehaviour {
     void Start() {
         StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions", ResponseCallback));
         updateButtonListeners();
-        continueButton.gameObject.SetActive(false);
-        scoreButton.gameObject.SetActive(false);
-        continueButton.onClick.AddListener(delegate { NextQuestion(); });
-        scoreButton.onClick.AddListener(delegate { SeeScore(); }); */
     }
 
     void updateButtonListeners() {
@@ -174,7 +170,8 @@ public class GameScript : MonoBehaviour {
         else {
             //scoreButton.gameObject.SetActive(true);
             Invoke("SeeScore", 3);
-            GlobalClass.player.points = points;
+            GlobalClass.lastRoundPoints = points;
+            GlobalClass.player.points += points;
         }
     }
 

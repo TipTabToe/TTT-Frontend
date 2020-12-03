@@ -79,7 +79,7 @@ public class SignUpPopUp : MonoBehaviour {
         Debug.Log(data);
         
         user = JsonUtility.FromJson<User>(data);
-        user.password = passwordField.text;
+        //user.password = passwordField.text;
         Debug.Log(user);
 
         GlobalClass.player = user;

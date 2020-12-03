@@ -6,23 +6,25 @@ public class MainMenuScript : MonoBehaviour {
     
     SignUpPopUp popupWindow;
     GameObject gameController;
-    private bool loggedIn = false;
-    
+    private PlayerSettings playerSettings;
+
     void Start () {
         gameController = GameObject.Find("GameController");
         popupWindow = gameController.GetComponent<SignUpPopUp> ();
+        playerSettings = gameController.GetComponent<PlayerSettings>();
     }
     
     public void Play() {
-        SceneLoader.Load(SceneLoader.Scene.CreateGame);
+        SceneLoader.Load(SceneLoader.Scene.Game);
     }
 
     public void Options() {
-        SceneLoader.LoadWithLoader(SceneLoader.Scene.Friendlist);
+        SceneLoader.Load(SceneLoader.Scene.Friendlist);
     }
     
     public void Quit() {
         Debug.Log("Quit pressed.");
+        playerSettings.savePlayer();
         Application.Quit();
     }
 }

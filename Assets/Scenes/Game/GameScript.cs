@@ -27,16 +27,24 @@ public class GameScript : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        shuffleQuestions();
         StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions", ResponseCallback));
+        updateButtonListeners();
+        continueButton.gameObject.SetActive(false);
+        scoreButton.gameObject.SetActive(false);
+        continueButton.onClick.AddListener(delegate { NextQuestion(); });
+        scoreButton.onClick.AddListener(delegate { SeeScore(); }); */
+    }
+
+    void updateButtonListeners() {
+        shuffleAnswers();
+        btn1.onClick.RemoveAllListeners();
+        btn2.onClick.RemoveAllListeners();
+        btn3.onClick.RemoveAllListeners();
+        btn4.onClick.RemoveAllListeners();
         btn1.onClick.AddListener(delegate { Clicked(shuffledQuestions[0], btn1); });
         btn2.onClick.AddListener(delegate { Clicked(shuffledQuestions[1], btn2); });
         btn3.onClick.AddListener(delegate { Clicked(shuffledQuestions[2], btn3); });
         btn4.onClick.AddListener(delegate { Clicked(shuffledQuestions[3], btn4); });
-        /* continueButton.gameObject.SetActive(false);
-        scoreButton.gameObject.SetActive(false);
-        continueButton.onClick.AddListener(delegate { NextQuestion(); });
-        scoreButton.onClick.AddListener(delegate { SeeScore(); }); */
     }
 
     // Update is called once per frame
@@ -126,8 +134,9 @@ public class GameScript : MonoBehaviour {
         }
         else {
             //scoreButton.gameObject.SetActive(true);
+            GlobalClass.player.points += points;
+            GlobalClass.lastRoundPoints = points;
             Invoke("SeeScore", 4);
-            GlobalClass.player.points = points;
         }
     }
 
@@ -176,7 +185,7 @@ public class GameScript : MonoBehaviour {
         // kysymykset yhdesrä kategoriasta
         question = myObject.questions[Random.Range(0, amountOfQuestions)];
         questionText.text = question.question;
-
+        updateButtonListeners();
         btnText1.text = question.answers[shuffledQuestions[0]];
         btnText2.text = question.answers[shuffledQuestions[1]];
         btnText3.text = question.answers[shuffledQuestions[2]];
@@ -207,7 +216,7 @@ public class GameScript : MonoBehaviour {
         // SceneLoader.Load(SceneLoader.Scene.MainMenu);
     }
 
-    private void shuffleQuestions() {
+    private void shuffleAnswers() {
         shuffledQuestions.Clear();
         int i = 0;
         while (i < 4) {

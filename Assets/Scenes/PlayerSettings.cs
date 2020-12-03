@@ -15,7 +15,7 @@ public class PlayerSettings : MonoBehaviour {
     
     public void Awake () {
         if (!PlayerPrefs.HasKey("player")) {
-            GlobalClass.player = new User("Player 1");
+            GlobalClass.player = new User();
             savePlayer();
         } else {
             GlobalClass.player = loadPlayer();
@@ -29,6 +29,9 @@ public class PlayerSettings : MonoBehaviour {
 
     public User loadPlayer() {
         GlobalClass.player = JsonUtility.FromJson<User>(PlayerPrefs.GetString("player"));
+        Debug.Log(GlobalClass.player);
         return GlobalClass.player;
     }
+    
+    
 }

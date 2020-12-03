@@ -17,7 +17,7 @@ public class ScoreSceneScript : MonoBehaviour {
     
     void Start() {
         computerPoints();
-        playerScore = GlobalClass.player.points;
+        playerScore = GlobalClass.lastRoundPoints;
         if (playerScore > opponentScore) {
             heading.SetText("You won!");
             icon.sprite = winnerIcon;

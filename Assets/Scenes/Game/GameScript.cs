@@ -132,6 +132,44 @@ public class GameScript : MonoBehaviour {
         }
     }
 
+    public void TimeRunsOut() {
+        if (btnText1.text.Equals(question.correctAnswer)) {
+            var colorsA = btn1.colors;
+            colorsA.normalColor = Color.green;
+            colorsA.disabledColor = Color.green;
+            btn1.colors = colorsA;
+        } else if (btnText2.text.Equals(question.correctAnswer)) {
+            var colorsA = btn2.colors;
+            colorsA.normalColor = Color.green;
+            colorsA.disabledColor = Color.green;
+            btn2.colors = colorsA;
+        } else if (btnText3.text.Equals(question.correctAnswer)) {
+            var colorsA = btn3.colors;
+            colorsA.normalColor = Color.green;
+            colorsA.disabledColor = Color.green;
+            btn3.colors = colorsA;
+        } else if (btnText4.text.Equals(question.correctAnswer)) {
+            var colorsA = btn4.colors;
+            colorsA.normalColor = Color.green;
+            colorsA.disabledColor = Color.green;
+            btn4.colors = colorsA;
+        }
+        
+        setButtonsInteractable(false);
+
+        cycle++;
+
+        if (cycle < 5) {
+            // continueButton.gameObject.SetActive(true);
+            Invoke("NextQuestion", 4);
+        }
+        else {
+            //scoreButton.gameObject.SetActive(true);
+            Invoke("SeeScore", 4);
+            GlobalClass.player.points = points;
+        }
+    }
+
     public void NextQuestion() {
         continueButton.gameObject.SetActive(false);
         setButtonsInteractable(true);

@@ -31,7 +31,7 @@ public class TimerScript : MonoBehaviour
                 print("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
-                gameScript.NextQuestion();
+                gameScript.TimeRunsOut();
 
             }
         }

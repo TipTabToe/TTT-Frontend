@@ -14,13 +14,7 @@ public class MainMenuScript : MonoBehaviour {
     }
     
     public void Play() {
-        if (loggedIn) {
-            //SceneLoader.Load(SceneLoader.Scene.PlayMenu);
-            SceneLoader.LoadWithLoader(SceneLoader.Scene.Game);
-        }
-        else {
-            popupWindow.Open();
-        }
+        SceneLoader.Load(SceneLoader.Scene.CreateGame);
     }
 
     public void Options() {

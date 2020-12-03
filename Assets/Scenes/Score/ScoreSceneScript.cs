@@ -32,8 +32,7 @@ public class ScoreSceneScript : MonoBehaviour {
     }
 
     public void PlayAgain() {
-        SceneLoader.Load(SceneLoader.Scene.MainMenu);
-        // OHJAA UUTEEN PELIIN
+        SceneLoader.Load(SceneLoader.Scene.CreateGame);
     }
     
     public void BackToMainMenu() {

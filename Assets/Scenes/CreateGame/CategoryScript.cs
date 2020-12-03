@@ -1,20 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CategoryScript : MonoBehaviour {
-    public static List<int> categoriesSelected = new List<int>();
+    public Button btn1;
+    public Button btn2;
+    public Button btn3;
+    public Button btn4;
 
-    public static void ToggleCategory(int cat) {
-        if (categoriesSelected.Contains(cat)) {
-            categoriesSelected.Remove(cat);
+    private void Start() {
+        Invoke("ShowSelectedCategory", 1);
+    }
+
+    public void ShowSelectedCategory() {
+        var colors = btn1.colors;
+        colors.normalColor = Color.green;
+        int random = Random.Range(0, 4);
+        Debug.Log("Random: " + random);
+        
+        if (random == 0) {
+            btn1.colors = colors;
+        } else if (random == 1) {
+            btn2.colors = colors;
+        } else if (random == 2) {
+            btn3.colors = colors;
+        } else if (random == 3) {
+            btn4.colors = colors;
         }
-        else {
-            categoriesSelected.Add(cat);
-        }
-        foreach (var i in categoriesSelected) {
-            print(i);
-        }
+        
+        Invoke("PlayGame", 2);
+    }
+
+    private void PlayGame() {
+        SceneLoader.Load(SceneLoader.Scene.Game);
     }
     
 }

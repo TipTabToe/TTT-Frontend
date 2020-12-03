@@ -38,7 +38,7 @@ public class TimerScript : MonoBehaviour
     }
 
     public static void ResetTimer() {
-        timeRemaining = 20;
+        timeRemaining = 25;
         answered = false;
         timerIsRunning = true;
     }

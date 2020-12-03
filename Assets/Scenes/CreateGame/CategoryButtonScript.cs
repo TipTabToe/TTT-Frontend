@@ -6,7 +6,7 @@ public class CategoryButtonScript : MonoBehaviour {
     public int cat;
 
     public void onClick() {
-        CategoryScript.ToggleCategory(cat);
+        // CategoryScript.ToggleCategory(cat);
     }
 
     public void SelectCategory() {

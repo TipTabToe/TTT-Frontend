@@ -31,8 +31,13 @@ public class ScoreSceneScript : MonoBehaviour {
         opponentPoints.SetText(opponentScore.ToString());
     }
 
-    public void ContinueClicked() {
-        SceneLoader.Load(SceneLoader.Scene.PlayMenu);
+    public void PlayAgain() {
+        SceneLoader.Load(SceneLoader.Scene.MainMenu);
+        // OHJAA UUTEEN PELIIN
+    }
+    
+    public void BackToMainMenu() {
+        SceneLoader.Load(SceneLoader.Scene.MainMenu);
     }
 
     public void computerPoints() {

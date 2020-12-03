@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TimerScript : MonoBehaviour
 {
-    public static float timeRemaining = 20;
+    public static float timeRemaining = 25;
     public static bool timerIsRunning = false;
     public TMP_Text timer;
     public static bool answered = false;

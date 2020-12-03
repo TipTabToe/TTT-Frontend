@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreSceneScript : MonoBehaviour {
 
     public TMP_Text heading;
     public TMP_Text points;
     public TMP_Text opponentPoints;
+    public Image icon;
     public int playerScore;
     public int opponentScore;
     
@@ -16,6 +18,7 @@ public class ScoreSceneScript : MonoBehaviour {
         playerScore = GlobalClass.player.points;
         if (playerScore > opponentScore) {
             heading.SetText("You won!");
+            
         }
         else {
             heading.SetText("You lost!");

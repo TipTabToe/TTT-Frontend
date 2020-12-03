@@ -173,6 +173,7 @@ public class GameScript : MonoBehaviour {
         // continueButton.gameObject.SetActive(false);
         setButtonsInteractable(true);
         resetButtonColors();
+        // kysymykset yhdesrä kategoriasta
         question = myObject.questions[Random.Range(0, amountOfQuestions)];
         questionText.text = question.question;
 

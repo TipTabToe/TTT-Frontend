@@ -26,7 +26,7 @@ public class GameScript : MonoBehaviour {
     public Sprite consumptionIcon;
     private int cycle = 0;
     private int points = 0;
-    private int amountOfQuestions = 6;
+    private int amountOfQuestions = 20;
     private List <int> shuffledQuestions = new List<int>(4);
 
     // Start is called before the first frame update

@@ -19,8 +19,7 @@ public class CategoryScript : MonoBehaviour {
         var colors = btn1.colors;
         colors.normalColor = Color.green;
         int random = Random.Range(0, 4);
-        Debug.Log("Random: " + random);
-        
+
         if (random == 0) {
             btn1.colors = colors;
             GlobalClass.category = 2;

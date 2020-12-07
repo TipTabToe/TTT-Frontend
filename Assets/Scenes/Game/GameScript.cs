@@ -26,7 +26,6 @@ public class GameScript : MonoBehaviour {
     public Sprite consumptionIcon;
     private int cycle = 0;
     private int points = 0;
-    private int amountOfQuestions = 5;
     private List <int> shuffledQuestions = new List<int>(4);
     private int currentQuestion = 0;
 
@@ -35,6 +34,7 @@ public class GameScript : MonoBehaviour {
         StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions/fromcategory/" + GlobalClass.category, ResponseCallback));
         updateButtonListeners();
 
+        // show the correct category icon
         if (GlobalClass.category == 2) {
             categoryImage.sprite = transportIcon;
         } else if (GlobalClass.category == 1) {
@@ -81,24 +81,27 @@ public class GameScript : MonoBehaviour {
 
     // Callback to act on our response data
     private void ResponseCallback(string data) {
-        Debug.Log(data);
+        // Debug.Log(data);
 
         myObject = JsonUtility.FromJson<QuestionSet>("{\"questions\":" + data + "}");
+        /*
         Debug.Log(myObject.questions);
         foreach (var q in myObject.questions) {
             Debug.Log(q.question);
         }
+        */
 
         NextQuestion();
     }
 
     private void Clicked(int num, Button b) {
         TimerScript.answered = true;
+        /*
         Debug.Log("Num" + num);
         Debug.Log("Questions answers num" + question.answers[num]);
         Debug.Log("Oikea vastaus" + question.correctAnswer);
+        */
         if (question.answers[num].Equals(question.correctAnswer)) {
-            Debug.Log("JEE");
             var colors = b.colors;
             colors.selectedColor = Color.green;
             colors.disabledColor = Color.green;
@@ -106,7 +109,6 @@ public class GameScript : MonoBehaviour {
             points++;
         }
         else {
-            Debug.Log("VAR");
             var colors = b.colors;
             colors.selectedColor = Color.red;
             colors.disabledColor = Color.red;
@@ -140,11 +142,9 @@ public class GameScript : MonoBehaviour {
         cycle++;
 
         if (cycle < 5) {
-            // continueButton.gameObject.SetActive(true);
             Invoke("NextQuestion", 2);
         }
         else {
-            //scoreButton.gameObject.SetActive(true);
             GlobalClass.player.points += points;
             GlobalClass.lastRoundPoints = points;
             Invoke("SeeScore", 2);
@@ -179,11 +179,9 @@ public class GameScript : MonoBehaviour {
         cycle++;
 
         if (cycle < 5) {
-            // continueButton.gameObject.SetActive(true);
             Invoke("NextQuestion", 2);
         }
         else {
-            //scoreButton.gameObject.SetActive(true);
             Invoke("SeeScore", 2);
             GlobalClass.lastRoundPoints = points;
             GlobalClass.player.points += points;
@@ -191,13 +189,11 @@ public class GameScript : MonoBehaviour {
     }
 
     public void NextQuestion() {
-        // continueButton.gameObject.SetActive(false);
         setButtonsInteractable(true);
         resetButtonColors();
 
         question = myObject.questions[currentQuestion];
         currentQuestion++;
-        Debug.Log(question.question);
         questionText.text = question.question;
         updateButtonListeners();
         btnText1.text = question.answers[shuffledQuestions[0]];
@@ -227,7 +223,6 @@ public class GameScript : MonoBehaviour {
 
     private void SeeScore() {
         SceneLoader.Load(SceneLoader.Scene.Score);
-        // SceneLoader.Load(SceneLoader.Scene.MainMenu);
     }
 
     private void shuffleAnswers() {

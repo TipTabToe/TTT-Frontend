@@ -1169,8 +1169,8 @@ MonoBehaviour:
   points: {fileID: 1166730861}
   opponentPoints: {fileID: 680043807}
   icon: {fileID: 2040991527}
-  winnerIcon: {fileID: 21300000, guid: a046024b641ab1d48952170a78102c5c, type: 3}
-  loserIcon: {fileID: 21300000, guid: 377ccb28eaf0d5a47a11f717b517d61f, type: 3}
+  winnerIcon: {fileID: 21300000, guid: 7a09d6bbb04257c41bad663fe9d5e926, type: 3}
+  loserIcon: {fileID: 21300000, guid: 463d117c0d0ccf4499d279d890ead4c5, type: 3}
   playerScore: 20
   opponentScore: 0
 --- !u!4 &1267066793

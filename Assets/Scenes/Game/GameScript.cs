@@ -26,24 +26,23 @@ public class GameScript : MonoBehaviour {
     public Sprite consumptionIcon;
     private int cycle = 0;
     private int points = 0;
-    private int amountOfQuestions = 20;
+    private int amountOfQuestions = 5;
     private List <int> shuffledQuestions = new List<int>(4);
 
     // Start is called before the first frame update
     void Start() {
-        StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions", ResponseCallback));
+        StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions/fromcategory/" + GlobalClass.category, ResponseCallback));
         updateButtonListeners();
 
-        if (GlobalClass.category.Equals("transportation")) {
+        if (GlobalClass.category == 2) {
             categoryImage.sprite = transportIcon;
-        } else if (GlobalClass.category.Equals("consumption")) {
+        } else if (GlobalClass.category == 1) {
             categoryImage.sprite = consumptionIcon;
-        } else if (GlobalClass.category.Equals("waste")) {
+        } else if (GlobalClass.category == 4) {
             categoryImage.sprite = wasteIcon;
-        } else if (GlobalClass.category.Equals("food")) {
+        } else if (GlobalClass.category == 3) {
             categoryImage.sprite = foodIcon;
         }
-        // if category on x, categoryimage.sprite = xIcon
     }
 
     void updateButtonListeners() {
@@ -194,8 +193,22 @@ public class GameScript : MonoBehaviour {
         // continueButton.gameObject.SetActive(false);
         setButtonsInteractable(true);
         resetButtonColors();
+        /*
+        bool correctCategory = false;
         // kysymykset yhdesrä kategoriasta
+        while (correctCategory == false) {
+            
+            if (question.category.name.Equals(GlobalClass.category)) {
+                Debug.Log("Sama");
+                correctCategory = true;
+            }
+            else {
+                Debug.Log("Ei sama");
+            }
+        }
+        */
         question = myObject.questions[Random.Range(0, amountOfQuestions)];
+        Debug.Log(question.question);
         questionText.text = question.question;
         updateButtonListeners();
         btnText1.text = question.answers[shuffledQuestions[0]];

@@ -593,7 +593,6 @@ GameObject:
   - component: {fileID: 712788304}
   - component: {fileID: 712788303}
   - component: {fileID: 712788302}
-  - component: {fileID: 712788301}
   m_Layer: 0
   m_Name: ConsumptionCategoryButton
   m_TagString: Untagged
@@ -621,19 +620,6 @@ RectTransform:
   m_AnchoredPosition: {x: 95, y: 84}
   m_SizeDelta: {x: 160.16284, y: 141.31415}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &712788301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712788299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a17dd68ad9e6e74fa670a77c44edf74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cat: 0
 --- !u!114 &712788302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,7 +993,6 @@ GameObject:
   - component: {fileID: 944451600}
   - component: {fileID: 944451599}
   - component: {fileID: 944451598}
-  - component: {fileID: 944451601}
   m_Layer: 0
   m_Name: TransportCategoryButton
   m_TagString: Untagged
@@ -1115,19 +1100,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944451596}
   m_CullTransparentMesh: 0
---- !u!114 &944451601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944451596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a17dd68ad9e6e74fa670a77c44edf74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cat: 0
 --- !u!1 &1023127664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1159,6 @@ GameObject:
   - component: {fileID: 1103156114}
   - component: {fileID: 1103156113}
   - component: {fileID: 1103156112}
-  - component: {fileID: 1103156111}
   m_Layer: 0
   m_Name: WasteCategoryButton
   m_TagString: Untagged
@@ -1215,19 +1186,6 @@ RectTransform:
   m_AnchoredPosition: {x: 91, y: -124}
   m_SizeDelta: {x: 162.04156, y: 141.31378}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1103156111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103156109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a17dd68ad9e6e74fa670a77c44edf74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cat: 0
 --- !u!114 &1103156112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,7 +1732,6 @@ GameObject:
   - component: {fileID: 2130777747}
   - component: {fileID: 2130777746}
   - component: {fileID: 2130777745}
-  - component: {fileID: 2130777744}
   m_Layer: 0
   m_Name: FoodCategoryButton
   m_TagString: Untagged
@@ -1802,19 +1759,6 @@ RectTransform:
   m_AnchoredPosition: {x: -97.06097, y: -124}
   m_SizeDelta: {x: 162.04156, y: 141.31378}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2130777744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130777742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a17dd68ad9e6e74fa670a77c44edf74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cat: 0
 --- !u!114 &2130777745
 MonoBehaviour:
   m_ObjectHideFlags: 0

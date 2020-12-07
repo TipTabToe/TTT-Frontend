@@ -9,6 +9,7 @@ public class ScoreSceneScript : MonoBehaviour {
     public TMP_Text heading;
     public TMP_Text points;
     public TMP_Text opponentPoints;
+    public TMP_Text category;
     public Image icon;
     public Sprite winnerIcon;
     public Sprite loserIcon;
@@ -16,6 +17,7 @@ public class ScoreSceneScript : MonoBehaviour {
     public int opponentScore;
     
     void Start() {
+        showCategory();
         computerPoints();
         playerScore = GlobalClass.lastRoundPoints;
         if (playerScore > opponentScore) {
@@ -33,6 +35,20 @@ public class ScoreSceneScript : MonoBehaviour {
         
         points.SetText(playerScore.ToString());
         opponentPoints.SetText(opponentScore.ToString());
+    }
+
+    public void showCategory() {
+        int categoryId = GlobalClass.category;
+
+        if (categoryId == 1) {
+            category.SetText("Consumption");
+        } else if (categoryId == 2) {
+            category.SetText("Transportation");
+        } else if (categoryId == 3) {
+            category.SetText("Food");
+        } else if (categoryId == 4) {
+            category.SetText("Waste");
+        }
     }
 
     public void PlayAgain() {

@@ -28,6 +28,7 @@ public class GameScript : MonoBehaviour {
     private int points = 0;
     private int amountOfQuestions = 5;
     private List <int> shuffledQuestions = new List<int>(4);
+    private int currentQuestion = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -193,21 +194,9 @@ public class GameScript : MonoBehaviour {
         // continueButton.gameObject.SetActive(false);
         setButtonsInteractable(true);
         resetButtonColors();
-        /*
-        bool correctCategory = false;
-        // kysymykset yhdesrä kategoriasta
-        while (correctCategory == false) {
-            
-            if (question.category.name.Equals(GlobalClass.category)) {
-                Debug.Log("Sama");
-                correctCategory = true;
-            }
-            else {
-                Debug.Log("Ei sama");
-            }
-        }
-        */
-        question = myObject.questions[Random.Range(0, amountOfQuestions)];
+
+        question = myObject.questions[currentQuestion];
+        currentQuestion++;
         Debug.Log(question.question);
         questionText.text = question.question;
         updateButtonListeners();

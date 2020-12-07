@@ -946,7 +946,11 @@ MonoBehaviour:
   btn2: {fileID: 276344570}
   btn3: {fileID: 1694707295}
   btn4: {fileID: 436686351}
-  categoryImage: {fileID: 0}
+  categoryImage: {fileID: 1522277545}
+  wasteIcon: {fileID: 21300000, guid: a4f7674ce8b4527488f5c8ccc752522d, type: 3}
+  foodIcon: {fileID: 21300000, guid: 8caa668e057421d4a8ff16fa7cbb464a, type: 3}
+  transportIcon: {fileID: 21300000, guid: c45237928092d744f86c9bf8e6256158, type: 3}
+  consumptionIcon: {fileID: 21300000, guid: 7a3dce3042f529f42af2580ecdb70bab, type: 3}
 --- !u!4 &985669654
 Transform:
   m_ObjectHideFlags: 0

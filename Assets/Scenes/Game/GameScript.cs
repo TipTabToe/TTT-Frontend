@@ -20,6 +20,10 @@ public class GameScript : MonoBehaviour {
     public Button btn3;
     public Button btn4;
     public Image categoryImage;
+    public Sprite wasteIcon;
+    public Sprite foodIcon;
+    public Sprite transportIcon;
+    public Sprite consumptionIcon;
     private int cycle = 0;
     private int points = 0;
     private int amountOfQuestions = 6;
@@ -29,6 +33,17 @@ public class GameScript : MonoBehaviour {
     void Start() {
         StartCoroutine(RequestRoutine(GlobalClass.API_URL + "/questions", ResponseCallback));
         updateButtonListeners();
+
+        if (GlobalClass.category.Equals("transportation")) {
+            categoryImage.sprite = transportIcon;
+        } else if (GlobalClass.category.Equals("consumption")) {
+            categoryImage.sprite = consumptionIcon;
+        } else if (GlobalClass.category.Equals("waste")) {
+            categoryImage.sprite = wasteIcon;
+        } else if (GlobalClass.category.Equals("food")) {
+            categoryImage.sprite = foodIcon;
+        }
+        // if category on x, categoryimage.sprite = xIcon
     }
 
     void updateButtonListeners() {

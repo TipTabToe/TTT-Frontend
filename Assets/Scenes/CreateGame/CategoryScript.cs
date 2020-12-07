@@ -23,12 +23,16 @@ public class CategoryScript : MonoBehaviour {
         
         if (random == 0) {
             btn1.colors = colors;
+            GlobalClass.category = "transportation";
         } else if (random == 1) {
             btn2.colors = colors;
+            GlobalClass.category = "consumption";
         } else if (random == 2) {
             btn3.colors = colors;
+            GlobalClass.category = "food";
         } else if (random == 3) {
             btn4.colors = colors;
+            GlobalClass.category = "waste";
         }
         
         Invoke("PlayGame", 2);

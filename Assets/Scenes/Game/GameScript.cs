@@ -126,13 +126,13 @@ public class GameScript : MonoBehaviour {
 
         if (cycle < 5) {
             // continueButton.gameObject.SetActive(true);
-            Invoke("NextQuestion", 4);
+            Invoke("NextQuestion", 2);
         }
         else {
             //scoreButton.gameObject.SetActive(true);
             GlobalClass.player.points += points;
             GlobalClass.lastRoundPoints = points;
-            Invoke("SeeScore", 4);
+            Invoke("SeeScore", 2);
         }
     }
 

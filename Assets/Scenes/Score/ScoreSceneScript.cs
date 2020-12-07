@@ -22,6 +22,10 @@ public class ScoreSceneScript : MonoBehaviour {
             heading.SetText("You won!");
             icon.sprite = winnerIcon;
         }
+        else if (playerScore == opponentScore) {
+            heading.SetText("It's a tie!");
+            icon.sprite = winnerIcon;
+        }
         else {
             heading.SetText("You lost!");
             icon.sprite = loserIcon;

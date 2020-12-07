@@ -2347,14 +2347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user:
-    id: 0
-    username: 
-    password: 
     points: 0
     statistics: []
-    friends: 
-    pendingFriends: 
-    pendingRequests: 
 --- !u!1 &1668523019
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,11 @@ public class MainMenuScript : MonoBehaviour {
         SceneLoader.Load(SceneLoader.Scene.Friendlist);
     }
     // Quits the app
+
+    public void Statistics() {
+        SceneLoader.Load(SceneLoader.Scene.Statistics);
+    }
+    
     public void Quit() {
         Debug.Log("Quit pressed.");
         playerSettings.savePlayer();

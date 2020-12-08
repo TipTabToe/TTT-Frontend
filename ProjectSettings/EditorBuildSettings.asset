@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Score/Score.unity
     guid: e5f0127d2ce285743877cef8ae36fb6d
+  - enabled: 1
+    path: Assets/Scenes/Statistics/Statistics.unity
+    guid: cf407e4cd8bbf8a45af8b59d586197de
   m_configObjects: {}

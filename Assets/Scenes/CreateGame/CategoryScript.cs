@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+// Holds buttons for categories and randomizes the chosen category
 public class CategoryScript : MonoBehaviour {
     public Button btn1;
     public Button btn2;
@@ -15,6 +16,7 @@ public class CategoryScript : MonoBehaviour {
         Invoke("ShowSelectedCategory", 1);
     }
 
+    // Turn the selected category button green
     public void ShowSelectedCategory() {
         var colors = btn1.colors;
         colors.normalColor = Color.green;
@@ -41,6 +43,7 @@ public class CategoryScript : MonoBehaviour {
         Invoke("PlayGame", 2);
     }
 
+    // Automatically loads the next scene when chosen category has been shown
     private void PlayGame() {
         SceneLoader.Load(SceneLoader.Scene.Game);
     }

@@ -11,7 +11,7 @@ public class FriendlistScript : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Makes phones back button go back
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -19,6 +19,7 @@ public class FriendlistScript : MonoBehaviour
         }
     }
     
+    // Makes back button direct to MainMenu
     public void BackToMainMenu() {
         SceneLoader.Load(SceneLoader.Scene.MainMenu);
     }

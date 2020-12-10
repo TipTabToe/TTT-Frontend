@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// Calls back the loader
 public class LoaderCallback : MonoBehaviour {
     private bool firstFrame = true;
     public TextMeshProUGUI loadingText;
@@ -12,7 +13,7 @@ public class LoaderCallback : MonoBehaviour {
     private int selector = 0;
     private float timer = 0.0f;
 
-    // Update is called once per frame
+    // Shows the loading "animation"
     void Update() {
 
         timer += Time.deltaTime;
@@ -32,6 +33,7 @@ public class LoaderCallback : MonoBehaviour {
         // SceneLoader.LoaderCallback();
     }
 
+    // Calls the callback method
     private void callCallbackMethod() {
         SceneLoader.LoaderCallback();
     }

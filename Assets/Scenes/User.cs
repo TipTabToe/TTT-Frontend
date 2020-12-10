@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 [Serializable]
+// Contains all the information of user
 public class User {
     /*
 	public long id;
@@ -15,11 +16,13 @@ public class User {
     public List<long> pendingFriends;
     public List<long> pendingRequests;
 	*/
-
+    
+    // Constructor for user
     public User() {
 	    statistics = new List<Statistic>();
     }
 
+    // Overrides default ToString for user
     public override string ToString() {
 	    return "User points: " + points;
     }

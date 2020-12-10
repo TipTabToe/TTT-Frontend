@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
+// THIS IS NOT IN USE
 public class SignUpPopUp : MonoBehaviour {
     public GameObject ui;
     public TMP_InputField usernameField;

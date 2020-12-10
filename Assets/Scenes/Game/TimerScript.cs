@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// Creates timer for game
 public class TimerScript : MonoBehaviour
 {
     public static float timeRemaining = 25;
@@ -16,7 +17,7 @@ public class TimerScript : MonoBehaviour
         timerIsRunning = true;
     }
 
-    // Update is called once per frame
+    // Updates timer
     void Update()
     {
         if (timerIsRunning && !answered)
@@ -37,6 +38,7 @@ public class TimerScript : MonoBehaviour
         }
     }
 
+    // Resets timer between questions
     public static void ResetTimer() {
         timeRemaining = 25;
         answered = false;

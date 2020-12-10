@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Shows the scores after game
 public class ScoreSceneScript : MonoBehaviour {
 
     public TMP_Text heading;
@@ -16,6 +17,7 @@ public class ScoreSceneScript : MonoBehaviour {
     public int playerScore;
     public int opponentScore;
     
+    // Checks  who won and changes texts accordingly
     void Start() {
         showCategory();
         computerPoints();
@@ -37,6 +39,7 @@ public class ScoreSceneScript : MonoBehaviour {
         opponentPoints.SetText(opponentScore.ToString());
     }
 
+    // Shows which category was played
     public void showCategory() {
         int categoryId = GlobalClass.category;
 
@@ -51,14 +54,17 @@ public class ScoreSceneScript : MonoBehaviour {
         }
     }
 
+    // Starts new game
     public void PlayAgain() {
         SceneLoader.Load(SceneLoader.Scene.CreateGame);
     }
     
+    // Goes back to MainMenu
     public void BackToMainMenu() {
         SceneLoader.Load(SceneLoader.Scene.MainMenu);
     }
 
+    // Randomizes points for computer
     public void computerPoints() {
         for (int i = 0; i < 5; i++) {
             float random = Random.value;

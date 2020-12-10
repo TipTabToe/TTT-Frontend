@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+// Makes the game go brrr
 public class GameScript : MonoBehaviour {
     public TMP_Text questionText;
     private QuestionSet myObject;
@@ -46,6 +47,7 @@ public class GameScript : MonoBehaviour {
         }
     }
 
+    // Add listeners to answer buttons
     void updateButtonListeners() {
         shuffleAnswers();
         btn1.onClick.RemoveAllListeners();
@@ -62,24 +64,19 @@ public class GameScript : MonoBehaviour {
     void Update() {
     }
 
-    // Web requests are typially done asynchronously, so Unity's web request system
-    // returns a yield instruction while it waits for the response.
-    //
+    // Sends a web request to chosen url
     private IEnumerator RequestRoutine(string url, Action<string> callback = null) {
-        // Using the static constructor
+        
         var request = UnityWebRequest.Get(url);
 
-        // Wait for the response and then get our data
         yield return request.SendWebRequest();
         var data = request.downloadHandler.text;
-
-        // This isn't required, but I prefer to pass in a callback so that I can
-        // act on the response data outside of this function
+        
         if (callback != null)
             callback(data);
     }
 
-    // Callback to act on our response data
+    // Called when the response is recieved
     private void ResponseCallback(string data) {
         // Debug.Log(data);
 
@@ -94,6 +91,9 @@ public class GameScript : MonoBehaviour {
         NextQuestion();
     }
 
+    // This is called when answer button is clicked
+    // It changes the button's color, increases the game cycle
+    // and loads the next question.
     private void Clicked(int num, Button b) {
         TimerScript.answered = true;
         /*
@@ -151,6 +151,9 @@ public class GameScript : MonoBehaviour {
         }
     }
 
+    // This is called when the timer runs out.
+    // It shows the correct answer and moves on 
+    // to next question.
     public void TimeRunsOut() {
         if (btnText1.text.Equals(question.correctAnswer)) {
             var colorsA = btn1.colors;
@@ -188,6 +191,7 @@ public class GameScript : MonoBehaviour {
         }
     }
 
+    // Loads the next question and shuffles the answers
     public void NextQuestion() {
         setButtonsInteractable(true);
         resetButtonColors();
@@ -203,6 +207,7 @@ public class GameScript : MonoBehaviour {
         TimerScript.ResetTimer();
     }
 
+    // Set buttons to interactable or non-interactable
     private void setButtonsInteractable(bool boolean) {
         btn1.interactable = boolean;
         btn2.interactable = boolean;
@@ -210,6 +215,7 @@ public class GameScript : MonoBehaviour {
         btn4.interactable = boolean;
     }
 
+    // Resets all buttons' colors after answering a question
     private void resetButtonColors() {
         var colors = btn1.colors;
         colors.normalColor = Color.white;
@@ -221,10 +227,12 @@ public class GameScript : MonoBehaviour {
         btn4.colors = colors;
     }
 
+    // Moves to score screen when five questions have been answered
     private void SeeScore() {
         SceneLoader.Load(SceneLoader.Scene.Score);
     }
 
+    // Shuffles answers to different places
     private void shuffleAnswers() {
         shuffledQuestions.Clear();
         int i = 0;

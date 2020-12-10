@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Shows the splash screen when app is opened
 public class StartupScript : MonoBehaviour {
     // Start is called before the first frame update
     private float timer = 0;
